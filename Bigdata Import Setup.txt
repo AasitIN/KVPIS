@@ -1,0 +1,11 @@
+Open-: Command Prompt
+
+cd E:\Programs\xampp\mysql\bin
+
+Login To Sql: mysql -uusername -ppassword
+Set Buffer		: set global net_buffer_length=10000000;
+Set Max Alllowed Packet	: set global max_allowed_packet=1000000000;
+Set Foreign Key Check	: set foreign_key_checks=0;
+Use Database		: use database_name;
+Import Sql		: source <path to .sql script>
+Set Foreign Key		: set foreign_key_checks=1;

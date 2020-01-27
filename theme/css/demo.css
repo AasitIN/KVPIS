@@ -1,0 +1,84 @@
+@charset "utf-8";
+/*Custom Nav*/
+body {
+	color:#000;
+	font-family:'Open Sans', sans-serif;
+}
+
+
+/*Start code for demo style*/
+.right-content h1{font-size:150%; border-bottom:1px solid #ddd;}
+.right-content h1:after{content:''; border-width:3px; border-bottom:3px solid #eb9b2b;width: 50px;display:block;margin-top: 7px;}
+.middle-sec h1{text-align:center; padding:30px 30px; font-size:150%;}
+.middle-sec h1::after{content:'';border-bottom: 2px solid #eb9b2b;border-width:4px;display: block;width: 50px;margin: 0 auto; margin-top:5px;}
+.graphicle{
+	text-align:center;
+	padding: 15px 15px;
+	background: #f7f7f7;
+	transition-duration:0.7s;
+	
+}
+.graphicle:hover a i{
+	background:none;
+}
+
+.graphicle:hover{margin-top:-10px; transition-duration:0.7s; }
+
+.graphicle:hover h2{color: #F86E4E;transition-duration:0.7s;}
+.graphicle:hover i{
+	background:#eb9b2b;
+	transition-duration:0.7s;
+}
+.graphicle h2{
+	font-weight:600;
+	font-size: 114%;
+    padding: 10px 10px;
+	transition-duration:0.7s;
+}
+.graphicle a{
+	color:#F86E4E;
+	font-weight:bold;
+}
+.graphicle a:hover {color:#555555;}
+.graphicle a i{
+	background:none;
+	color: #F86E4E;
+	width: 0;
+    padding-left: 5px;
+}
+.graphicle i{
+	background:#F86E4E;
+	color:#fff;
+	width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    line-height: 40px;
+	transition-duration:0.7s;
+}
+#photo-slider ol, .flex-pauseplay{display:none;}
+
+.right-content .content{background: #291e1e;color: #fff;padding: 30px;min-height: 245px;}
+.right-content .content h2{color: #6bb600;padding-bottom: 21px;font-weight: bold;font-size: 120%;}
+
+
+/*Form*/
+.middle-sec_2 .f-header{background:#6f2d91; color:#fff; text-transform:uppercase; font-weight:bold; text-align:center; padding:5px 0; margin-bottom:30px; position:relative;}
+.middle-sec_2 .f-header:after{content:'.'; background: url(../images/angle-down.png) no-repeat; height:9px;bottom: -15px; width:15px; position:absolute; bottom:-9px; color:#efeaea;}
+.middle-sec_2 .f-header i{width:35px; height:35px; border:2px solid #fff; border-radius:50%; line-height:35px;}
+.middle-sec_2 form {width:95%;background: #efeaea; padding:10px;}
+.middle-sec_2 form .form-group{display:block; width:100%; clear:left; padding: 10px 10px;}
+.middle-sec_2 form span{background:#6f2d91; width:32px; height:32px; display:block; float:left; text-align:center;line-height: 32px;}
+.middle-sec_2 form span i{text-align:center; color:#fff;}
+.middle-sec_2 form input{ height:32px; width:88%; border:none; border:1px solid #ddd; padding-left:5px;}
+.btn-sub{background:#555555; border:none; padding:8px; width:20%; color:#fff;margin-bottom: 20px; margin-left: 10px;}
+.btn-sub:hover{background:#6f2d91;}
+.middle-sec_2 form input[type="checkbox"]{float:left; width:15px; height:15px; margin-right: 10px;} 
+.middle-sec_2 .footer{margin:20px 0 20px 10px;}
+
+
+
+
+/*common css classes*/
+.m-t-50{margin-top:50px;}
+.m-t-20{margin-top:20px;}
+

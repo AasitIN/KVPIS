@@ -1,0 +1,206 @@
+Controller Code - $view_data['row'] = $this->website_model->get_photo_gallery_data_by_id($phg_id,$type);
+
+
+
+Model - 
+
+public function get_photo_gallery_details_by_id($phg_id,$type) {
+        $this->db->select("wg.*");
+        $this->db->from("webpvgalleries wg");
+        $this->db->where("pvcate_id", $phg_id);
+        $this->db->where("type", $type);
+        $query = $this->db->get();
+        if ($query->num_rows() >= 1) {
+            return $query->result();
+        } else {
+            return array();
+        }
+    }
+
+
+
+Views
+
+<script>
+    var random_id = Date.now();
+$('#addmore').click(function () {
+    random_id = Date.now();
+    RenderPhotoGallery(random_id);
+});
+var gallery_details =<?php echo json_encode(isset($row->photo_gallery) ? $row->photo_gallery: ''); ?>;
+        if (gallery_details) {
+            $.each(gallery_details, function (key, gallery_detail) {
+                RenderPhotoGallery(gallery_detail.id, gallery_detail);
+
+            });
+        } else {
+            gallery_detail = {};
+            RenderPhotoGallery(random_id, gallery_detail);
+            $("#"+random_id).css("display","none");
+        }
+
+
+function RenderPhotoGallery(random_id, gallery_detail) {
+    var source = $("#gallery_more_template").html();
+    var wexp_count = $(".delete_wexp_gallery_more").length;
+    Mustache.parse(source);
+    var rendered = Mustache.render(source, {
+        random_id: random_id,
+        gallery_detail: gallery_detail,
+    });
+   
+    $("#containner_video_more").append(rendered);
+    if (wexp_count != 0) {
+       $("#gallery_more_1_"+random_id).css("display","block");
+    }
+    gallery_image_only(random_id);
+    unique_title_en(random_id);
+    unique_title_hi(random_id);
+    delete_gallery_more(random_id);
+}
+function delete_gallery_more(random_id) {
+    
+    $("#remove_wexp_gallery_more" + random_id).click(function () {
+        var wexp_count = $(".delete_wexp_gallery_more").length;
+        var wexp_id = $(this).attr("wexpid");
+        var type = 1;
+        if (wexp_id) {
+                    var confirm = window.confirm('Are you sure want to delete?');
+                    if (confirm) {
+                        $.ajax({
+                            url: '<?php echo base_url(); ?>admin/websites/delete_gallery_details',
+                            method: 'POST',
+                            data: {type:type, wexp_id: wexp_id,<?php echo $this->security->get_csrf_token_name(); ?>: "<?php echo $this->security->get_csrf_hash(); ?>"},
+                            success: function (data) {
+                                $("#delete_wexp" + random_id).remove();
+                                location.reload();
+                                //generate("success", "Work experience deleted successfully");
+                                if (wexp_count == 1) {
+                                    equa = {};
+                                    RenderPhotoGallery(random_id, equa);
+                                }
+                            }
+                        });
+                    }
+                } else {
+                    if (wexp_count > 1) {
+                        $("#delete_wexp_gallery_more" + random_id).remove();
+                    }
+
+                }
+      });
+}
+ function gallery_image_only(random_exr_id) {
+ $("#gallery_image_" + random_exr_id).change(function () {
+	 var input = this;
+                var iSize = ((input.files[0].size) / 1024);
+                var image_size = (Math.round((iSize / 1024) * 100) / 100);
+                 var class_condition=$(this).attr("class_condition");
+                if (image_size <= 2) {
+                    if (input.files[0].type =='image/jpeg' || input.files[0].type=='image/jpg' || input.files[0].type=='image/png' || input.files[0].type=='image/gif') {
+                        var reader = new FileReader();
+                        reader.onload = function (e) {
+                           $(input).parent().find("img").remove();
+						if(class_condition==4){
+							$(input).parent().append("<img src='"+e.target.result+"' class='common_photo'>");
+						}else{
+							$(input).parent().append("<img src='"+e.target.result+"' class='add_edit_image_width'>");
+						}
+                        }
+                        reader.readAsDataURL(input.files[0]);
+                        $("#gallery_image_size_" + random_exr_id).hide();
+                        $("#gallery_image_valid_" + random_exr_id).hide();
+                    } else {
+                        $("#gallery_image_valid_" + random_exr_id).html("Invalid Image.Please Select Valid Image");
+                        $("#gallery_image_size_" + random_exr_id).hide();
+                        $("#gallery_image_valid_" + random_exr_id).show();
+                        return false;
+                    }
+                } else {
+                    $("#gallery_image_size_" + random_exr_id).html("Image Size Greater than 2 MB.Please Select Image Size Less Than or Equal 2 MB");
+                    $("#gallery_image_size_" + random_exr_id).show();
+                    $("#gallery_image_valid_" + random_exr_id).hide();
+                    return false;
+                }
+	});
+        }
+        
+        $("#category_id").on('change', function () {
+        var category_id = $("#category_id").val();
+        var table = $(this).attr('table_cat');
+        var type = $(this).attr('type');
+         if (category_id != '') {
+            $.ajax({
+                url: '<?php echo base_url(); ?>admin/websites/check_unique_photo_category_client_side',
+                method: 'POST',
+                data: {id: category_id, table: table,type: type},
+                success: function (response) {
+                    if (response != '' && response != 0) {
+                        $("#label_category_id").html('This category already existed.');
+                        $("#category_id").val("");
+                        $("div.error").html("");
+                    } else {
+                        $("#label_category_id").html("");
+                        $("div.error").html("");
+                    }
+
+                }
+            });
+        }
+
+
+    });
+           function unique_title_en(random_exr_id) {
+        $("#title_en_" + random_exr_id).on('blur', function () {
+            var category_id = $("#category_id").val();
+            var title_en = $("#title_en_" + random_exr_id).val();
+            var version = $("#title_en_" + random_exr_id).attr('version_en_'+ random_exr_id);
+            var type = $("#title_en_" + random_exr_id).attr('type_en_'+ random_exr_id);
+            if (category_id != '') {
+                $.ajax({
+                    url: '<?php echo base_url(); ?>admin/websites/check_unique_title_gallery',
+                    method: 'POST',
+                    data: {category_id: category_id, title: title_en, type: type,version:version},
+                    success: function (response) {
+                        if (response != '' && response != 0) {
+                            $("#label_title_en_" + random_exr_id).html('This title already existed.');
+                            $("#title_en_" + random_exr_id).val("");
+                            $("div.error").html("");
+                        } else {
+                            $("#label_title_en_" + random_exr_id).html("");
+                            $("div.error").html("");
+                        }
+
+                    }
+                });
+            }
+        });
+    }
+
+    function unique_title_hi(random_exr_id) {
+        $("#title_hi_" + random_exr_id).on('blur', function () {
+            var category_id = $("#category_id").val();
+            var title_hi = $("#title_hi_" + random_exr_id).val();
+            var version = $("#title_hi_" + random_exr_id).attr('version_hi_'+ random_exr_id);
+            var type = $("#title_hi_" + random_exr_id).attr('type_hi_'+ random_exr_id);
+            if (category_id != '') {
+                $.ajax({
+                    url: '<?php echo base_url(); ?>admin/websites/check_unique_title_gallery',
+                    method: 'POST',
+                    data: {category_id: category_id, title: title_hi, type: type,version:version},
+                    success: function (response) {
+                        if (response != '' && response != 0) {
+                            $("#label_title_hi_" + random_exr_id).html('This title already existed.');
+                            $("#title_hi_" + random_exr_id).val("");
+                            $("div.error").html("");
+                        } else {
+                            $("#label_title_hi_" + random_exr_id).html("");
+                            $("div.error").html("");
+                        }
+
+                    }
+                });
+            }
+        });
+    }
+</script>

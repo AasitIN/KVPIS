@@ -1,0 +1,73 @@
+/* Basic jQuery Slider essential styles */
+
+ul.bjqs{position:relative; list-style:none;padding:0;margin:0;overflow:hidden; display:none;}
+li.bjqs-slide{position:absolute; display:none;}
+ul.bjqs-controls{list-style:none;margin:0;padding:0;z-index:9999;}
+ul.bjqs-controls.v-centered li a{position:absolute;}
+ul.bjqs-controls.v-centered li.bjqs-next a{right:0;}
+ul.bjqs-controls.v-centered li.bjqs-prev a{left:0;}
+ul.bjqs-controls.v-centered li.bjqs-next a::after{content: "\f105";    font-family: FontAwesome;  font-size: 34px; color: #fff;}
+ul.bjqs-controls.v-centered li.bjqs-prev a::after{content: "\f104";font-family: FontAwesome;font-size: 34px;color: #fff;}
+
+ol.bjqs-markers{list-style: none;padding: 0;margin: 0;display: none;width:100%;}
+ol.bjqs-markers.h-centered{text-align: center;}
+ol.bjqs-markers li{display:inline;}
+ol.bjqs-markers li a{display:inline-block;}
+p.bjqs-caption{display:block;width:96%;margin:0;padding:2%;position:absolute;bottom:0;}
+
+
+li.bjqs-slide img {
+    width:121px !important;
+    height:121px !important;
+    margin-left: 40%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+li.bjqs-slide p {
+    float:left;
+    width:100%;
+    text-align:center;
+    padding-top: 10px;
+}
+li.bjqs-slide span {
+    float:left;width:100%;text-align:center;
+}
+
+#banner-fade,
+#banner-slide{
+	margin-bottom: 0;
+}
+
+ul.bjqs-controls.v-centered li a{
+	display:block;
+	padding: 5px 15px 5px 15px;
+	background: #69b2fb;
+	font-size: 0;
+	color:#000;
+	text-decoration: none;
+	border: #fff solid 1px;
+	border-radius: 5px;
+}
+
+ul.bjqs-controls.v-centered li a:hover{
+	background:#144c86;
+	color:#fff;
+}
+
+ol.bjqs-markers li a{
+	padding:5px 10px;
+	background:#000;
+	color:#fff;
+	margin:5px;
+	text-decoration: none;
+}
+
+ol.bjqs-markers li.active-marker a,
+ol.bjqs-markers li a:hover{
+	background: #999;
+}
+
+p.bjqs-caption{
+	background: rgba(255,255,255,0.5);
+}

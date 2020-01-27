@@ -1,0 +1,315 @@
+@charset "utf-8";
+@media (min-width : 1400px) and (max-width : 1600px) {
+
+}
+@media all and (max-width : 1350px) {
+
+}
+/*@media all and (max-width : 1200px) {
+
+.nav-wrapper ul li a {
+	padding: 0 19px;
+}
+}*/
+@media (max-width : 1200px) {
+ .nav-wrapper ul li a, .nav-wrapper ul li li:first-child a {
+ padding: 5px 11px !important;
+}
+
+}
+@media all and (max-width : 1100px) {
+/*.logo {
+    background: rgba(0, 0, 0, 0) url("../../theme/images/emblem.png") no-repeat scroll 40px 0;
+    font-size: 160%;
+    padding: 7px 0 30px 110px;
+   
+}*/	
+
+.container {
+ width: 96%;
+}
+.nav-wrapper ul li a, .nav-wrapper ul li li:first-child a {
+ padding: 5px 8px !important;
+}
+
+ 
+}
+@media all and (max-width : 1038px) {
+
+}
+@media all and (min-width : 993px) and (max-width : 1024px) {
+
+}
+@media all and (max-width : 1023px) {
+.banner-wrapper .flex-control-nav {
+    left: auto !important;
+    right: 50px !important;
+    top: 60%;
+}
+	.flex-control-nav li { float:right}
+ .nav-wrapper ul li a, .nav-wrapper ul li li:first-child a {
+ padding: 0px 5px !important;
+}
+.nav-wrapper ul li:first-child a {
+ padding: 0 23px !important;
+}
+ .slide-caption a {
+ padding: 8px 15px;
+}
+ .body-panel2 ul li:nth-child(2n+1) {
+ margin-right: 0%;
+}
+ 
+ .nav-wrapper ul li a, .nav-wrapper ul li li:first-child a {
+ padding: 0 10px;
+}
+.gallery ul.slides {
+ width: 66.5%;
+}
+.gallery ol.flex-control-nav.flex-control-thumbs {
+ width: 33.2%;
+}
+.gallery .flex-control-thumbs li {
+ width: 50%;
+}
+.flex-control-thumbs {
+ margin: 5px 0 0;
+ overflow: hidden;
+ position: relative;
+ top: 0;
+ z-index: 100000000;
+}
+.flex-direction-nav .flex-next {
+    /*background: rgba(0, 0, 0, 0) url("../../theme/images/next.png") no-repeat scroll right top;*/
+    font-size: 0;
+    /*left: 14.5%;*/
+    opacity: 1;
+ text-align: right;
+}
+#flexSlider-text-2 .flex-direction-nav .flex-prev {
+ left: 200px;
+}
+#flexSlider-text-2 .flex-direction-nav .flex-next {
+ left: 210px;
+}
+}
+ @media all and (max-width: 940px) {
+
+ .nav-wrapper ul li a, .nav-wrapper ul li li:first-child a {
+ padding: 0px 20px !important;
+}
+ .nav-wrapper ul li.open ul li a {
+ padding-left: 20px !important;
+}
+ .slide-caption {
+padding:5px 15px;
+}
+
+ #nav li {
+ background: #dd303c !important;
+ border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+.nav-wrapper ul li.open ul li a {
+ background: #e8c65a !important;
+ color: #fff;
+}
+.nav-wrapper ul li.open ul li:hover a {
+ background: #e8c65a !important;
+}
+.sub-menu i {
+ color: #fff;
+}
+.nav-wrapper ul li:hover a {
+ background: #99b82b !important;
+}
+#nav {
+ max-height: none;
+ overflow: visible;
+}
+}
+ @media all and (max-width: 850px) {
+ 
+}
+ @media all and (max-width: 790px) {
+	 .banner-wrapper .flex-pauseplay {    
+    display: block !important;
+    right: 0;
+    top: 50%;
+}
+	
+
+}
+@media all and (max-width: 768px) {
+.top-body-wrapper {
+ padding: 0;
+}
+
+
+}
+ @media all and (max-width: 767px) {
+	 .guide-text {
+    color: #333333;
+    display: block;
+    font-size: 13px;
+    font-weight: 600;
+	text-align:right;
+    margin-bottom: 22px;
+}
+	 .carousel-wrapper .flex-pauseplay{ display:block !important; right:15%}
+	 .banner-wrapper .flex-control-nav{ 
+	left: auto !important;
+    right: 40px !important; top:40%}
+	.banner-wrapper .flex-pauseplay{ top:28%; right:0}
+	 	 
+	
+	 .links h2{ font-size:120%; height:40px}
+	 .banner-wrapper .flex-control-nav{ left:0}
+ .gallery-area a {
+ padding: 6px 12px;
+}
+ .bottom-slider {
+ margin-top: 0;
+}
+
+ .slide-caption a {
+font-size:100%;
+}
+}
+ @media all and (max-width : 650px) {
+ .header-right {
+display:none;
+}
+/*.logo {
+    background: rgba(0, 0, 0, 0) url("../../theme/images/emblem.png") no-repeat scroll 0 0;
+    font-size: 160%;
+    padding: 7px 0 30px 61px;
+}*/
+.slide-caption p {
+ font-size: 100%;
+ font-weight: 600;
+ line-height: 128.57%;
+ padding: 10px 0;
+ width: 100%;
+}
+.slide-caption {
+ position: static;
+ width: 100%;
+}
+.slide-caption a {
+ margin-left: 0;
+ margin-top: 0;
+}
+.banner-wrapper .container {
+ width: 100%;
+}
+.flex-direction-nav {
+ display: block;
+}
+.banner-wrapper .flex-control-nav {
+ display: block;
+ bottom: 0; top:58%; 
+}
+ .toggle-nav-bar {
+}
+
+}
+ @media all and (max-width : 500px) {
+
+}
+ @media all and (max-width : 639px) {
+.logo {
+ background-position: 0 0;
+ background-size:contain !important;
+ font-size: 100%;
+ min-height: 56px;
+ padding: 5px 0 0 50px;
+}
+}
+ @media all and (max-width : 450px) {
+ .banner-wrapper .flex-direction-nav, .banner-wrapper .flex-direction-nav {
+display:none !important;
+}
+
+.body-container {
+width:90%;
+}
+ .links {
+ float: none;
+ width: 100%;
+ margin-bottom:30px;
+ clear:both;
+}
+
+.flexslider li a.bg-slide {
+ height: 150px;
+}
+}
+ @media all and (max-width : 350px) {
+ .gallery-area h3 {
+ font-size:100%;
+}
+ .gallery-area a {
+ padding: 6px 8px;
+}
+
+}
+
+
+/*=========forced fixing==============*/
+@media (min-width : 1024px) and (max-width : 1038px) {
+.banner-wrapper .flex-direction-nav {
+ right: 110px;
+}
+}
+ @media (min-width : 769px) and (max-width : 783px) {
+.banner-wrapper .flex-direction-nav {
+ right: 94px;
+}
+}
+
+/*=========forced fixing ends==============*/
+
+
+
+/*=========old rules==============*/
+
+@media all and (max-width : 940px) {
+ .header-wrapper {
+ border-bottom: 1px solid #fff;
+}
+/*responsive nav theme*/	 
+.nav-wrapper {
+ background: #ffbf27;
+}
+#nav {
+ max-height: none;
+}
+#nav li {
+ background: #dd303c;
+ border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+#nav li a {
+ color: #fff;
+}
+.nav-wrapper ul li.open ul li a {
+ background: #d6ae0b !important;
+ color: #000;
+}
+.nav-wrapper ul li.open ul li:hover a {
+ background: #d6ae0b !important;
+}
+.sub-menu i {
+ color: #fff;
+}
+.nav-wrapper ul li:hover a {
+ background: #e8c65a !important;
+}
+}
+ @media (max-width : 800px) {
+	 .banner-wrapper .flex-pauseplay{ top:50%}
+
+}
+@media (max-width : 500px) {}
+	
+
+
